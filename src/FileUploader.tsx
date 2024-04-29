@@ -53,11 +53,11 @@ const drawDescription = (
   label: string | undefined
 ) => {
   return typeError ? (
-    <span>Erro de tipo/tamanho de arquivo, Passou o mouse nos tipos!</span>
+    <span>File type/size error, Hovered on types!</span>
   ) : (
     <Description>
       {disabled ? (
-        <span>Upload desativado</span>
+        <span>Upload disabled</span>
       ) : !currFile && !uploaded ? (
         <>
           {label ? (
@@ -67,13 +67,13 @@ const drawDescription = (
             </>
           ) : (
             <>
-              <span>Faça o upload</span> ou arraste um arquivo aqui
+              <span>Upload</span> or drop a file right here
             </>
           )}
         </>
       ) : (
         <>
-          <span>Upload realizado com sucesso!</span> Fazer outro upload?
+          <span>Uploaded Successfully!</span> Upload another?
         </>
       )}
     </Description>
@@ -136,17 +136,17 @@ const FileUploader: React.FC<Props> = (props: Props): JSX.Element => {
     if (types && !checkType(file, types)) {
       // types included and type not in them
       setError(true);
-      if (onTypeError) onTypeError('Tipo de arquivo não suportado');
+      if (onTypeError) onTypeError('File type is not supported');
       return false;
     }
     if (maxSize && getFileSizeMB(file.size) > maxSize) {
       setError(true);
-      if (onSizeError) onSizeError('Tamanho do arquivo é muito grande');
+      if (onSizeError) onSizeError('File size is too big');
       return false;
     }
     if (minSize && getFileSizeMB(file.size) < minSize) {
       setError(true);
-      if (onSizeError) onSizeError('Tamanho do arquivo é muito pequeno');
+      if (onSizeError) onSizeError('File size is too small');
       return false;
     }
     return true;
@@ -237,7 +237,7 @@ const FileUploader: React.FC<Props> = (props: Props): JSX.Element => {
       />
       {dragging && (
         <HoverMsg style={dropMessageStyle}>
-          <span>{hoverTitle || 'Solte aqui'}</span>
+          <span>{hoverTitle || 'Drop Here'}</span>
         </HoverMsg>
       )}
       {!children && (

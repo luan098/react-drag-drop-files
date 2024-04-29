@@ -19,10 +19,10 @@ export default function DrawTypes({
   if (types) {
     const stringTypes = types.toString();
     let size = '';
-    if (maxSize) size += `tamanho >= ${maxSize}, `;
-    if (minSize) size += `tamanho <= ${minSize}, `;
+    if (maxSize) size += `size >= ${maxSize}, `;
+    if (minSize) size += `size <= ${minSize}, `;
     return (
-      <span title={`${size}tipos: ${stringTypes}`} className="file-types">
+      <span title={`${size}types: ${stringTypes}`} className="file-types">
         {stringTypes}
       </span>
     );
